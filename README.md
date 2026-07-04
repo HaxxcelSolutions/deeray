@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Deeray
 
-## Getting Started
+Minimalist home essentials storefront — Next.js 15 + PostgreSQL.
 
-First, run the development server:
+## Stack
+
+- **Framework**: Next.js 15 (App Router) + React 19 + TypeScript 5
+- **Styling**: Tailwind v4 (CSS-first config in `globals.css`)
+- **Database**: PostgreSQL via Prisma 6
+- **Auth**: Admin-only sessions via `iron-session`
+- **Cart**: Guest cart in encrypted cookies
+- **Email**: Nodemailer (SMTP)
+
+## Local Development
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up .env (copy from .env.example)
+cp .env.example .env
+# Edit .env with your DATABASE_URL and SESSION_SECRET
+
+# 3. Push schema + seed
+npm run db:push
+npm run db:seed
+
+# 4. Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Admin login: `admin@deeray.com` / `admin123`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Action | Command |
+|---|---|
+| Dev server | `npm run dev` |
+| Build | `npm run build` |
+| Lint | `npm run lint` |
+| Type check | `npx tsc --noEmit` |
+| Prisma Studio | `npm run db:studio` |
+| Create migration | `npm run db:migrate:dev` |
+| Seed DB | `npm run db:seed` |
 
-## Learn More
+## Deploy to Oracle Cloud (or any VPS)
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Ubuntu 24.04 VPS with Docker installed
+- Domain pointing to your server IP
+- SSH access
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Install Dependencies
 
-## Deploy on Vercel
+```bash
+sudo apt update && sudo apt install -y docker.io docker-compose-v2 \
+  nginx certbot python3-certbot-nginx git
+sudo usermod -aG docker ubuntu
+exit  # reconnect
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Clone & Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+sudo mkdir -p /opt/deeray
+sudo chown -R ubuntu:ubuntu /opt/deeray
+cd /opt/deeray
+git clone <your-repo-url> .
+```
+
+### 4. Environment
+
+```bash
+cp .env.production.example .env.production
+nano .env.production
+```
+
+Variables:
+- `DB_PASSWORD` — PostgreSQL password
+- `SESSION_SECRET` — run `openssl rand -hex 32`
+- `SITE_URL` — `https://yourdomain.com`
+- `SMTP_*` — email credentials (optional)
+
+### 5. Start Services
+
+```bash
+docker compose --env-file .env.production up -d db
+sleep 15
+docker compose --env-file .env.production run --rm migrate
+docker compose --env-file .env.production up -d app
+docker compose exec app npx prisma db seed
+```
+
+### 6. Nginx + SSL
+
+```bash
+DOMAIN="yourdomain.com"
+sudo cp /opt/deeray/deploy/nginx.conf /etc/nginx/sites-available/deeray
+sudo sed -i "s/yourdomain.com/$DOMAIN/g" /etc/nginx/sites-available/deeray
+sudo sed -i "s/www.yourdomain.com/www.$DOMAIN/g" /etc/nginx/sites-available/deeray
+sudo ln -sf /etc/nginx/sites-available/deeray /etc/nginx/sites-enabled/
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo nginx -t && sudo systemctl reload nginx
+sudo certbot --nginx -d "$DOMAIN" -d "www.$DOMAIN" \
+  --non-interactive --agree-tos -m "admin@$DOMAIN"
+```
+
+### 7. Update
+
+```bash
+cd /opt/deeray && git pull
+docker compose --env-file .env.production build app
+docker compose --env-file .env.production run --rm migrate
+docker compose --env-file .env.production up -d app
+```
+
+## Project Layout
+
+| Path | Purpose |
+|---|---|
+| `src/app/(store)/` | Storefront (products, cart, checkout, etc.) |
+| `src/app/admin/` | Admin panel |
+| `src/components/` | Shared React components |
+| `src/lib/` | Utilities, Prisma singleton, auth, cart |
+| `deploy/` | Nginx config, setup scripts |
+| `prisma/` | Schema + seed |
