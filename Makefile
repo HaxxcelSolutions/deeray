@@ -42,7 +42,7 @@ stop:
 logs:
 	docker compose logs -f app
 
-deploy: git_pull pull migrate start
+deploy: git_pull build migrate start
 
 git_pull:
 	git pull origin main
