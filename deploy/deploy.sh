@@ -17,6 +17,14 @@ docker compose --env-file "$ENV_FILE" run --rm app npx prisma generate
 docker compose --env-file "$ENV_FILE" run --rm app npx prisma db push
 
 echo "4. Starting app..."
-docker compose --env-file "$ENV_FILE" up -d app
+docker compose --env-file "$ENV_FILE" up -d app || true
 
-echo "Done."
+sleep 15
+
+if curl -sf http://localhost:3000/api/health >/dev/null 2>&1; then
+  echo "Done."
+else
+  echo "Rolling back to local build..."
+  docker compose --env-file "$ENV_FILE" build app
+  docker compose --env-file "$ENV_FILE" up -d app
+fi
