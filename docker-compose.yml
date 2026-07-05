@@ -16,9 +16,7 @@ services:
       start_period: 30s
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/hxsolutions/deeray:latest
     restart: unless-stopped
     depends_on:
       db:
@@ -43,30 +41,6 @@ services:
       timeout: 5s
       retries: 3
       start_period: 15s
-
-  # Run on first deploy to set up DB schema
-  migrate:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      DATABASE_URL: "postgresql://deeray:${DB_PASSWORD:-deeray_password}@db:5432/deeray?schema=public"
-    command: >
-      sh -c "
-        if [ -d prisma/migrations ] && ls prisma/migrations/*/migration.sql 1>/dev/null 2>&1; then
-          echo 'Running migrations...'
-          npx prisma migrate deploy
-        else
-          echo 'No migrations found. Running db push...'
-          npx prisma db push --accept-data-loss
-        fi
-        echo 'Seeding...'
-        npx prisma db seed || true
-      "
-    restart: no
 
 volumes:
   postgres_data:

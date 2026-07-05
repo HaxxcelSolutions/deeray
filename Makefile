@@ -1,6 +1,6 @@
 ENV_FILE = .env.production
 
-.PHONY: help setup db migrate seed build start restart logs deploy nginx ssl env dev
+.PHONY: help setup env db pull migrate seed start restart stop logs deploy
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
@@ -17,14 +17,15 @@ env:
 db:
 	docker compose --env-file $(ENV_FILE) up -d db
 
+pull:
+	docker compose --env-file $(ENV_FILE) pull app
+
 migrate:
-	docker compose --env-file $(ENV_FILE) run --rm migrate
+	npx prisma generate
+	npx prisma db push
 
 seed:
-	docker compose --env-file $(ENV_FILE) exec app npx prisma db seed
-
-build:
-	docker compose --env-file $(ENV_FILE) build app
+	npx prisma db seed
 
 start:
 	docker compose --env-file $(ENV_FILE) up -d app
@@ -38,7 +39,7 @@ stop:
 logs:
 	docker compose logs -f app
 
-deploy: git_pull build migrate restart
+deploy: git_pull pull migrate restart
 
 git_pull:
 	git pull origin main
@@ -53,6 +54,3 @@ nginx:
 
 ssl:
 	sudo certbot --nginx -d $(DOMAIN) -d www.$(DOMAIN) --non-interactive --agree-tos -m admin@$(DOMAIN)
-
-dev:
-	npm run dev

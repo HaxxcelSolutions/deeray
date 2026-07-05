@@ -43,9 +43,20 @@ Admin login: `admin@deeray.com` / `admin123`
 | Create migration | `npm run db:migrate:dev` |
 | Seed DB | `npm run db:seed` |
 
-## Deploy to Oracle Cloud (VPS)
+## Deploy to VPS (Oracle / any)
 
-### Quick start (Make)
+### How it works
+
+| Step | Where | What |
+|------|-------|------|
+| 1. Code push | Your PC | `git push` to GitHub |
+| 2. Auto-build | GitHub Actions | Builds Docker image on free Linux runner |
+| 3. Auto-push | GitHub Actions | Pushes image to `ghcr.io` |
+| 4. Deploy | Server | `make deploy` — pulls image + migrates + restarts |
+
+Server par kabhi build nahi hota — sirz image pull hoti hai. 1GB RAM bhi kaafi hai.
+
+### First-time server setup
 
 ```bash
 # 1. Clone
@@ -63,20 +74,37 @@ nano .env.production   # edit DB_PASSWORD, SESSION_SECRET, SITE_URL, SMTP_*
 # 4. Start DB
 make db
 
-# 5. Migrate + seed
+# 5. Login to GitHub Container Registry (one-time)
+echo $GITHUB_TOKEN | docker login ghcr.io -u <your-github-username> --password-stdin
+
+# 6. Pull app image
+make pull
+
+# 7. Migrate + seed
 make migrate
 make seed
 
-# 6. Nginx + SSL
+# 8. Start app
+make start
+
+# 9. Nginx + SSL
 make nginx DOMAIN=yourdomain.com
 make ssl DOMAIN=yourdomain.com
 ```
 
-That's it — `https://yourdomain.com` live.
-
-### Update to new version
+### Daily update workflow
 
 ```bash
+# Local PC: code change karo, push karo
+git add .
+git commit -m "fix: something"
+git push
+
+# Actions tab mein build chal raha hoga (2-3 min)
+
+# Server: deploy karo
+ssh ubuntu@<ip>
+cd /var/www/deeray
 make deploy
 ```
 
@@ -87,16 +115,15 @@ make deploy
 | `make setup` | Install Docker, Nginx, certbot, PM2 |
 | `make env` | Create `.env.production` from example |
 | `make db` | Start PostgreSQL |
-| `make migrate` | Run Prisma migrations |
+| `make pull` | Pull latest app image from GitHub |
+| `make migrate` | Run Prisma migrations (direct, no Docker) |
 | `make seed` | Seed admin user |
-| `make build` | Build app (Docker) |
 | `make start` | Start app |
 | `make restart` | Restart app |
-| `make deploy` | Pull + build + migrate + restart |
+| `make deploy` | Git pull + image pull + migrate + restart |
 | `make nginx DOMAIN=x` | Configure Nginx for your domain |
 | `make ssl DOMAIN=x` | Get SSL cert from Let's Encrypt |
 | `make logs` | View app logs |
-| `make dev` | Start local dev server |
 
 Admin login: `admin@deeray.com` / `admin123`
 
