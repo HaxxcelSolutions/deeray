@@ -1,6 +1,6 @@
 ENV_FILE = .env.production
 
-.PHONY: help setup env db build migrate seed start stop logs deploy
+.PHONY: help setup env db pull migrate seed stop logs deploy
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
@@ -16,6 +16,9 @@ env:
 db:
 	docker compose --env-file $(ENV_FILE) up -d db
 
+pull:
+	docker compose --env-file $(ENV_FILE) pull app
+
 migrate:
 	docker compose --env-file $(ENV_FILE) run --rm app npx prisma generate
 	docker compose --env-file $(ENV_FILE) run --rm app npx prisma db push
@@ -29,23 +32,23 @@ stop:
 logs:
 	docker compose logs -f app
 
-deploy: git_pull build migrate switch
+deploy: git_pull pull migrate switch
 
 git_pull:
 	git pull origin main
 
-build:
-	docker compose --env-file $(ENV_FILE) build app
-
 switch:
-	@echo "--- Updating app ---"
+	@echo "--- Starting new version ---"
 	-docker compose --env-file $(ENV_FILE) up -d app
 	@sleep 15
 	@if curl -sf http://localhost:3000/api/health >/dev/null 2>&1; then \
 		echo "Done."; \
 	else \
-		echo "Failed — rebuilding previous version..."; \
-		git checkout HEAD~1 && docker compose --env-file $(ENV_FILE) build app && docker compose --env-file $(ENV_FILE) up -d app && git checkout main; \
+		echo "Failed — building locally from previous commit..."; \
+		git stash; \
+		docker compose --env-file $(ENV_FILE) build app; \
+		docker compose --env-file $(ENV_FILE) up -d app; \
+		git stash pop; \
 	fi
 
 nginx:
