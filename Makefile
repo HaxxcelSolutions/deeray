@@ -58,4 +58,4 @@ nginx:
 	sudo nginx -t && sudo systemctl reload nginx
 
 ssl:
-	sudo certbot --nginx -d $(DOMAIN) -d www.$(DOMAIN) --non-interactive --agree-tos -m admin@$(DOMAIN)
+	(echo "$(DOMAIN)" | grep -q .) && sudo certbot --nginx -d $(DOMAIN) -d www.$(DOMAIN) --non-interactive --agree-tos -m admin@$(DOMAIN) || echo "Usage: make ssl DOMAIN=deeray.store"
