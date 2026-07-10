@@ -97,13 +97,32 @@ export default function HomePage() {
     }
   }, [nextSlide, prevSlide])
 
-  function getCarouselClass(index: number) {
-    const diff = index - currentSlide
+  function getCardStyle(index: number) {
     const len = products.length
-    if (diff === 0) return "active"
-    if (diff === -1 || (currentSlide === 0 && index === len - 1)) return "prev"
-    if (diff === 1 || (currentSlide === len - 1 && index === 0)) return "next"
-    return "hidden-side"
+    let diff = index - currentSlide
+    if (diff > len / 2) diff -= len
+    if (diff < -len / 2) diff += len
+
+    const step = Math.abs(diff)
+    const side = diff < 0 ? -1 : 1
+
+    // Staircase cascade: each rear card is offset by 50% of its own width
+    // and sits behind the card closer to center
+    const xPct = side * 50 * step
+    const yPct = 6 * step
+    const zPx = -40 * step
+    const s = Math.max(0.65, 1 - step * 0.1)
+    const o = Math.max(0.35, 1 - step * 0.18)
+    const zIdx = Math.max(5, 30 - step * 4)
+
+    return {
+      z: `z-${zIdx}`,
+      opacity: diff === 0 ? 1 : o,
+      transform: diff === 0
+        ? "translate3d(0, 0, 60px)"
+        : `translate3d(${xPct}%, ${yPct}%, ${zPx}px) scale(${s})`,
+      info: diff === 0,
+    }
   }
 
   return (
@@ -209,32 +228,36 @@ export default function HomePage() {
               </AnimateInView>
             </div>
 
-            <div className="relative w-full h-[320px] md:h-[380px] flex items-center justify-center" style={{ perspective: "2000px" }}>
-              <div ref={trackRef} className="flex items-center justify-center w-full h-full relative select-none" style={{ transformStyle: "preserve-3d", cursor: "grab" }}>
-                {products.map((product, index) => (
-                  <Link key={product.id} href={`/products/${product.slug}`}
-                    className={`absolute w-[200px] md:w-[300px] flex flex-col items-center transition-all duration-800 ${
-                      getCarouselClass(index) === "active" ? "z-30 opacity-100" : getCarouselClass(index) === "prev" || getCarouselClass(index) === "next" ? "z-20 opacity-60" : "opacity-0 pointer-events-none"
-                    }`}
-                    style={{
-                      transition: "all 0.8s cubic-bezier(0.23, 1, 0.32, 1)",
-                      transform: getCarouselClass(index) === "active" ? "translate3d(0, 0, 100px)" : getCarouselClass(index) === "prev" ? "translate3d(-35%, 0, -200px) rotateY(25deg) scale(0.85)" : getCarouselClass(index) === "next" ? "translate3d(35%, 0, -200px) rotateY(-25deg) scale(0.85)" : "translate3d(0, 0, -500px) scale(0.5)",
-                    }}
-                  >
-                    <div className="w-full aspect-[3/4] bg-[#f4f3f5] rounded-2xl overflow-hidden mb-4 shadow-2xl ring-1 ring-black/5">
-                      <div className="w-full h-full p-8 md:p-10 flex items-center justify-center">
-                        <img src={product.image} alt={product.name} className="w-full h-full object-contain hover:scale-105 transition-transform duration-700" />
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <span className="font-['Hanken_Grotesk'] text-[9px] text-[#715b3a] uppercase mb-1 block tracking-[0.2em]">{product.category}</span>
-                      <h3 className="font-serif text-lg md:text-xl text-[#062437] mb-0.5">{product.name}</h3>
-                      <p className="font-['Hanken_Grotesk'] text-sm md:text-base text-[#062437]/50 font-light">{formatPrice(product.price)}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+             <div className="relative w-full h-[440px] md:h-[520px] flex items-start justify-center mt-12 md:mt-20" style={{ perspective: "2000px" }}>
+               <div ref={trackRef} className="flex items-center justify-center w-full h-full relative select-none" style={{ transformStyle: "preserve-3d", cursor: "grab" }}>
+                 {products.map((product, index) => {
+                   const style = getCardStyle(index)
+                   return (
+                     <Link key={product.id} href={`/products/${product.slug}`}
+                       className={`absolute w-[200px] md:w-[300px] flex flex-col items-center transition-all duration-800 ${style.z}`}
+                       style={{
+                         opacity: style.opacity,
+                         transition: "all 0.8s cubic-bezier(0.23, 1, 0.32, 1)",
+                         transform: style.transform,
+                       }}
+                     >
+                       <div className="w-full aspect-[3/4] bg-[#f4f3f5] rounded-2xl overflow-hidden mb-4 shadow-2xl ring-1 ring-black/5">
+                         <div className="w-full h-full p-8 md:p-10 flex items-center justify-center">
+                           <img src={product.image} alt={product.name} className="w-full h-full object-contain hover:scale-105 transition-transform duration-700" />
+                         </div>
+                       </div>
+                       {style.info && (
+                         <div className="text-center">
+                           <span className="font-['Hanken_Grotesk'] text-[9px] text-[#715b3a] uppercase mb-1 block tracking-[0.2em]">{product.category}</span>
+                           <h3 className="font-serif text-lg md:text-xl text-[#062437] mb-0.5">{product.name}</h3>
+                           <p className="font-['Hanken_Grotesk'] text-sm md:text-base text-[#062437]/50 font-light">{formatPrice(product.price)}</p>
+                         </div>
+                       )}
+                     </Link>
+                   )
+                 })}
+               </div>
+             </div>
           </div>
         </section>
 

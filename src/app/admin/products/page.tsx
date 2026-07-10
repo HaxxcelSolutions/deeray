@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 
 interface Product {
@@ -35,6 +35,12 @@ export default function AdminProducts() {
     })
     load()
   }
+
+  const deleteProduct = useCallback(async (id: string, name: string) => {
+    if (!window.confirm(`Delete "${name}"? This cannot be undone.`)) return
+    await fetch(`/api/admin/products/${id}`, { method: "DELETE" })
+    load()
+  }, [])
 
   if (loading) return <div className="text-[#73777d]">Loading...</div>
 
@@ -84,11 +90,15 @@ export default function AdminProducts() {
                     {p.isActive ? "Active" : "Inactive"}
                   </span>
                 </td>
-                <td className="px-6 py-5">
+                <td className="px-6 py-5 flex items-center gap-4">
                   <Link href={`/admin/products/${p.id}`}
                     className="text-[#062437] text-xs uppercase tracking-widest hover:underline">
                     Edit
                   </Link>
+                  <button onClick={() => deleteProduct(p.id, p.name)}
+                    className="text-[#ba1a1a] text-xs uppercase tracking-widest hover:underline">
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

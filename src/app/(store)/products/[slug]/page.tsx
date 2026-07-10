@@ -1,11 +1,20 @@
 import { prisma } from "@/lib/prisma"
 import { notFound } from "next/navigation"
+import type { Prisma } from "@prisma/client"
 import ProductDetailClient from "./ProductDetailClient"
+
+type ProductWithRelations = Prisma.ProductGetPayload<{
+  include: {
+    images: { orderBy: { order: "asc" } }
+    variants: { where: { isActive: true } }
+    category: true
+  }
+}>
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
 
-  const product = await prisma.product.findUnique({
+  const product: ProductWithRelations | null = await prisma.product.findUnique({
     where: { slug },
     include: {
       images: { orderBy: { order: "asc" } },

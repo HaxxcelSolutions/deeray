@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  let post
+  let post: Awaited<ReturnType<typeof prisma.blogPost.findUnique>> | null = null
   try {
     post = await prisma.blogPost.findUnique({ where: { slug, published: true } })
   } catch {
@@ -74,7 +74,7 @@ export default async function BlogPostPage({ params }: Props) {
         )}
 
         <div className="font-['Hanken_Grotesk'] text-base md:text-lg text-[#42474c] leading-[1.8] font-light space-y-6 max-w-none">
-          {post.content.split("\n").map((paragraph, i) => (
+          {post.content.split("\n").map((paragraph: string, i: number) => (
             paragraph.trim() ? <p key={i}>{paragraph}</p> : null
           ))}
         </div>

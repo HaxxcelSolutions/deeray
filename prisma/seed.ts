@@ -27,7 +27,7 @@ async function main() {
       create: {
         name: "Pure",
         slug: "pure",
-        description: "Pure air, pure water — engineered filtration for the modern home.",
+        description: "Pure air, pure water — smart filtration and climate tech for the modern home.",
         image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80",
       },
     }),
@@ -37,7 +37,7 @@ async function main() {
       create: {
         name: "Shield",
         slug: "shield",
-        description: "Advanced hygiene solutions for the conscious, modern lifestyle.",
+        description: "Advanced hygiene and sanitization tech for the conscious, modern lifestyle.",
         image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
       },
     }),
@@ -47,7 +47,7 @@ async function main() {
       create: {
         name: "Aura",
         slug: "aura",
-        description: "Ambient design that transforms living spaces into personal sanctuaries.",
+        description: "Smart lighting and ambient tech that transforms living spaces into personal sanctuaries.",
         image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800&q=80",
       },
     }),
@@ -57,7 +57,7 @@ async function main() {
       create: {
         name: "Carry",
         slug: "carry",
-        description: "Premium vessels for the rituals of daily hydration, on the move or at rest.",
+        description: "Premium power and connectivity gear for the modern professional, on the move or at rest.",
         image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
       },
     }),
@@ -85,235 +85,231 @@ async function main() {
 
   const productData = [
     {
-      name: "The Kashmir Overcoat",
-      slug: "kashmir-overcoat",
-      brief: "Hand-tailored vicuña-blend overcoat with silk lining.",
-      description: `A masterwork of precision tailoring, The Kashmir Overcoat is crafted from the world's finest vicuña-blend fabric sourced from the highlands of Peru. Each coat requires over 72 hours of hand-stitching by master artisans in Milan.
+      name: "AeroPure H13 True HEPA Air Purifier",
+      slug: "aeropure-h13-hepa",
+      brief: "Medical-grade HEPA H13 filtration for rooms up to 500 sq ft. Smart sensor with auto mode.",
+      description: `The AeroPure H13 is engineered for those who demand the cleanest air possible. Its true HEPA H13 filter captures 99.97% of airborne particles as small as 0.3 microns — including pollen, dust mites, pet dander, mold spores, and bacteria.
 
-The silhouette is sculptural yet effortless — a relaxed shoulder, suppressed waist, and a sweeping hem that moves like liquid. Inside, a full silk lining in midnight navy bears our signature monogram.
+A built-in laser particle sensor reads the air quality in real time and adjusts the fan speed automatically. The 360° intake design ensures maximum airflow from every direction, while the whisper-quiet DC motor runs as low as 24 dB — barely louder than a whisper.
 
-Every detail has been considered: mother-of-pearl buttons from Naples, horn-rimmed buttonholes stitched by hand, and an interior pocket sized perfectly for a leather-bound journal.
+The unit covers up to 500 sq ft in a single cycle (2x per hour) and 350 sq ft on continuous mode. Replaceable filter lasts 6–8 months with a handy replacement indicator.
 
-This is not merely an overcoat. It is an heirloom.`,
+Smart features include Wi-Fi connectivity, voice control via Alexa and Google Assistant, and a companion app that tracks air quality history.`,
       categorySlug: "pure",
-      brand: "Deeray Atelier",
+      brand: "Deeray Tech",
       isFeatured: true,
       variants: [
-        { sku: "KO-44", size: "44", color: "Charcoal", price: 285000, comparePrice: 320000, stock: 5 },
-        { sku: "KO-46", size: "46", color: "Charcoal", price: 285000, stock: 8 },
-        { sku: "KO-48", size: "48", color: "Charcoal", price: 285000, stock: 3 },
-        { sku: "KO-50", size: "50", color: "Charcoal", price: 295000, stock: 2 },
+        { sku: "AP-100", size: "Standard", color: "Matte White", price: 34999, comparePrice: 42999, stock: 25 },
+        { sku: "AP-200", size: "Standard", color: "Charcoal", price: 35999, stock: 18 },
+        { sku: "AP-FILTER", size: "Replacement Filter", color: "Universal", price: 4999, stock: 100 },
       ],
       images: [
-        { url: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1200&q=90", alt: "Kashmir Overcoat — Front View" },
-        { url: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&q=90", alt: "Kashmir Overcoat — Detail" },
-        { url: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=1200&q=90", alt: "Kashmir Overcoat — Silhouette" },
-        { url: "https://images.unsplash.com/photo-1608236415055-3a792a590cbf?w=1200&q=90", alt: "Kashmir Overcoat — Fabric Detail" },
-      ],
-      tags: ["new-arrival", "limited-edition", "handcrafted"],
-      reviews: [
-        { customerName: "Zaid M.", customerEmail: "zaid@example.com", rating: 5, title: "Absolute masterpiece", comment: "The weight, the drape, the stitching — everything about this coat whispers luxury. Worth every rupee.", isApproved: true },
-        { customerName: "Ahmed K.", customerEmail: "ahmed@example.com", rating: 5, title: "Heirloom quality", comment: "I own overcoats from Brioni and Kiton. This rivals both at a fraction of the price. Extraordinary.", isApproved: true },
-      ],
-    },
-    {
-      name: "Rose Absolute Eau de Parfum",
-      slug: "rose-absolute-edp",
-      brief: "A thousand hand-picked Turkish roses in every crystal flacon.",
-      description: `Rose Absolute is an olfactory ode to the gardens of Isparta, where centifolia roses have been cultivated for generations. Each 100ml flacon contains the essence of over one thousand hand-picked blooms, cold-extracted to preserve their volatile aromatics.
-
-The composition unfolds in three acts: an opening of bergamot and pink peppercorn gives way to a heart of Turkish rose absolute and Bulgarian otto, settled on a base of Venezuelan ambrette seed, Australian sandalwood, and Kashmir cedar.
-
-The flacon itself is a sculpture — mouth-blown crystal faceted by Murano glass masters, finished with a 24-karat gold-plated collar and a hand-engraved deer motif.
-
-A fragrance for those who understand that true luxury is invisible yet unforgettable.`,
-      categorySlug: "aura",
-      brand: "Deeray Parfums",
-      isFeatured: true,
-      variants: [
-        { sku: "RA-50", size: "50ml", color: "Crystal", price: 45000, comparePrice: 52000, stock: 12 },
-        { sku: "RA-100", size: "100ml", color: "Crystal", price: 75000, stock: 8 },
-        { sku: "RA-TRAVEL", size: "10ml", color: "Travel", price: 12000, stock: 25 },
-      ],
-      images: [
-        { url: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=1200&q=90", alt: "Rose Absolute — Flacon" },
-        { url: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=1200&q=90", alt: "Rose Absolute — Detail" },
-        { url: "https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=1200&q=90", alt: "Rose Absolute — Packaging" },
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "AeroPure H13 — Front View" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "AeroPure H13 — Controls" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "AeroPure H13 — Filter" },
       ],
       tags: ["new-arrival", "best-seller"],
       reviews: [
-        { customerName: "Sara H.", customerEmail: "sara@example.com", rating: 5, title: "The most beautiful rose", comment: "I've tried every rose perfume from Frédéric Malle to Diptyque. This surpasses them all. Stunning longevity.", isApproved: true },
+        { customerName: "Zaid M.", customerEmail: "zaid@example.com", rating: 5, title: "Game changer for allergies", comment: "My seasonal allergies have completely disappeared since using this. The auto mode is incredibly accurate.", isApproved: true },
+        { customerName: "Ahmed K.", customerEmail: "ahmed@example.com", rating: 5, title: "Quiet and effective", comment: "Barely know it's running but the air quality difference is noticeable within hours.", isApproved: true },
       ],
     },
     {
-      name: "Obsidian Leather Tote",
-      slug: "obsidian-leather-tote",
-      brief: "Full-grain Italian leather tote, hand-stitched and unlined.",
-      description: `The Obsidian Tote is a study in restraint. Cut from a single hide of Tuscan full-grain leather that has been vegetable-tanned over eight weeks, it develops a patina unique to its owner.
+      name: "HydroPure Alkaline Mineral Water Purifier",
+      slug: "hydropure-alkaline",
+      brief: "7-stage RO + UV + UF filtration with alkaline mineralizer. TDS controller included.",
+      description: `The HydroPure Alkaline transforms ordinary tap water into premium alkaline water with a 7-stage purification process. The system combines Reverse Osmosis, UV sterilization, and Ultra Filtration with a post-carbon alkaline mineralizer that adds essential minerals like calcium, magnesium, and potassium.
 
-There is no lining — the raw leather interior is a feature, not a compromise, showcasing the hide's natural markings and the hand-stitching of Florentine artisans who have honed their craft across three generations.
+The TDS controller lets you retain natural minerals while removing harmful contaminants. The 10-liter tank ensures a continuous supply, and the leak-proof design with auto shut-off provides complete peace of mind.
 
-The bag is structured yet soft, with a single internal snap pocket, solid brass hardware cast in Jaipur, and a detachable shoulder strap. It fits a 16-inch laptop, a leather journal, and the day's essentials.
+Installation is tool-free with the included quick-connect fittings, and the filter replacement indicator takes the guesswork out of maintenance. Filters last 6–12 months depending on input water quality.
 
-A bag that will outlive you and look better with every passing year.`,
-      categorySlug: "carry",
-      brand: "Deeray Atelier",
-      isFeatured: true,
-      variants: [
-        { sku: "OT-BLK", size: "Standard", color: "Obsidian Black", price: 185000, comparePrice: 210000, stock: 7 },
-        { sku: "OT-TAB", size: "Standard", color: "Tabacco", price: 185000, stock: 4 },
-        { sku: "OT-BRN", size: "Standard", color: "Walnut Brown", price: 195000, stock: 3 },
-      ],
-      images: [
-        { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=90", alt: "Obsidian Tote — Front" },
-        { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=90", alt: "Obsidian Tote — Detail" },
-        { url: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=1200&q=90", alt: "Obsidian Tote — Hardware" },
-        { url: "https://images.unsplash.com/photo-1563903532908-af5dcd22a6c7?w=1200&q=90", alt: "Obsidian Tote — Lifestyle" },
-      ],
-      tags: ["best-seller", "handcrafted"],
-      reviews: [
-        { customerName: "Omar F.", customerEmail: "omar@example.com", rating: 5, title: "Worth the investment", comment: "Six months of daily use and it looks better than the day I bought it. The patina is incredible.", isApproved: true },
-      ],
-    },
-    {
-      name: "Silk Georgette Evening Gown",
-      slug: "silk-georgette-gown",
-      brief: "Fluid silk georgette with a hand-beaded neckline.",
-      description: `The Silk Georgette Evening Gown is liquid poetry. Cut on the bias from 22-momme silk georgette sourced from the Como region of Italy, it drapes like a second skin, moving with the body rather than against it.
-
-The neckline is a canvas — each gown features over 800 hand-sewn glass beads and freshwater pearls, applied by artisans in Mumbai who have spent decades mastering the art of embroidery. No two gowns are identical.
-
-A secreted interior corset provides structure without sacrificing comfort, while the hem falls to a graceful floor-sweeping finish. Available in five shades, each dyed with low-impact Italian dyes that lend the silk an almost iridescent depth.
-
-For the woman who enters a room and changes its atmosphere.`,
+Certified to remove 99% of dissolved solids, heavy metals, chlorine, pesticides, and microbial contaminants.`,
       categorySlug: "pure",
-      brand: "Deeray Atelier",
+      brand: "Deeray Tech",
       isFeatured: true,
       variants: [
-        { sku: "EG-MID", size: "S", color: "Midnight", price: 420000, comparePrice: 480000, stock: 2 },
-        { sku: "EG-MID-M", size: "M", color: "Midnight", price: 420000, stock: 3 },
-        { sku: "EG-MID-L", size: "L", color: "Midnight", price: 420000, stock: 2 },
-        { sku: "EG-BUR", size: "S", color: "Burgundy", price: 440000, stock: 1 },
-        { sku: "EG-BUR-M", size: "M", color: "Burgundy", price: 440000, stock: 2 },
+        { sku: "HP-10L", size: "10L Tank", color: "Gloss White", price: 28999, comparePrice: 34999, stock: 30 },
+        { sku: "HP-20L", size: "20L Tank", color: "Gloss White", price: 35999, stock: 15 },
+        { sku: "HP-FILTER-SET", size: "Filter Set (7-stage)", color: "Universal", price: 5499, stock: 80 },
       ],
       images: [
-        { url: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1200&q=90", alt: "Evening Gown — Front" },
-        { url: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=1200&q=90", alt: "Evening Gown — Detail" },
-        { url: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=1200&q=90", alt: "Evening Gown — Back" },
-        { url: "https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=1200&q=90", alt: "Evening Gown — Beading Detail" },
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "HydroPure — Front View" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "HydroPure — Display Panel" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "HydroPure — Filter Set" },
       ],
-      tags: ["limited-edition", "handcrafted"],
-      reviews: [],
-    },
-    {
-      name: "Cashmere Travel Throw",
-      slug: "cashmere-travel-throw",
-      brief: "Pure Mongolian cashmere, woven on traditional handlooms.",
-      description: `Wrapped in this throw, the world softens. Each piece is woven on traditional handlooms in Ulaanbaatar by artisans who have worked with cashmere for generations. The fibers are hand-combed from free-ranging Hircus goats, then spun into a two-ply yarn that achieves the perfect balance of warmth and weightlessness.
-
-At 220gsm, it is substantial enough for a transatlantic flight yet light enough to carry everywhere. The edges are hand-fringed, and each throw arrives in a silk-lined leather travel case.
-
-A companion for journeys both great and small.`,
-      categorySlug: "aura",
-      brand: "Deeray Home",
-      isFeatured: false,
-      variants: [
-        { sku: "CT-CHAR", size: "140x200cm", color: "Charcoal", price: 95000, comparePrice: 115000, stock: 15 },
-        { sku: "CT-CAM", size: "140x200cm", color: "Camel", price: 95000, stock: 12 },
-        { sku: "CT-CRM", size: "140x200cm", color: "Cream", price: 95000, stock: 10 },
-      ],
-      images: [
-        { url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=90", alt: "Cashmere Throw — On Chair" },
-        { url: "https://images.unsplash.com/photo-1602872030213-6f62e1bf7e2f?w=1200&q=90", alt: "Cashmere Throw — Detail" },
-        { url: "https://images.unsplash.com/photo-1591955506261-4b33e84a9624?w=1200&q=90", alt: "Cashmere Throw — Travel Case" },
-      ],
-      tags: ["best-seller", "handcrafted"],
+      tags: ["new-arrival", "best-seller"],
       reviews: [
-        { customerName: "Fatima A.", customerEmail: "fatima@example.com", rating: 5, title: "Heavenly soft", comment: "I take this everywhere — flights, hotels, even to the office. It transforms any seat into a sanctuary.", isApproved: true },
-        { customerName: "Ali R.", customerEmail: "ali@example.com", rating: 4, title: "Beautiful but delicate", comment: "Gorgeous quality. Just be careful with snags — cashmere this fine needs gentle handling.", isApproved: true },
+        { customerName: "Sara H.", customerEmail: "sara@example.com", rating: 5, title: "Best investment for health", comment: "The water tastes noticeably better and I feel more hydrated throughout the day.", isApproved: true },
       ],
     },
     {
-      name: "The Safari Jacket",
-      slug: "safari-jacket",
-      brief: "Portuguese corduroy safari jacket with four bellows pockets.",
-      description: `A modern take on the classic safari jacket, cut from heavyweight Portuguese corduroy with a distinct 16-wale rib. The silhouette is relaxed — designed to be worn open over a linen shirt or cinched at the waist with the integrated belt.
+      name: "SonicShield UV-C Sanitizer & Dryer Cabinet",
+      slug: "sonicshield-uvc-sanitizer",
+      brief: "UV-C sterilization + warm air drying for phones, keys, masks, and everyday essentials.",
+      description: `The SonicShield UV-C Sanitizer Cabinet uses five high-intensity UV-C LEDs to eliminate 99.9% of bacteria and viruses from your everyday carry items. The 15-liter interior is large enough to hold smartphones, keys, wallets, sunglasses, masks, and more simultaneously.
 
-Four bellows pockets sit at the front, each secured with a horn button and pleated for expansion. The collar rolls beautifully, softening with wear. Inside, a single hidden pocket sits at the left breast — perfect for a passport or a fountain pen.
+The intelligent cycle runs for 5 minutes of UV-C exposure followed by 10 minutes of warm air drying, leaving items not only sanitized but completely dry. The front panel is tempered glass with a UV-blocking coating, and the touch controls include a timer and child lock.
 
-Construction details include felled seams, corozo nut buttons, and a curved hem that falls just below the hip. This is a jacket made for discovery.`,
+Designed for daily use at home or in the office. Rated for over 10,000 cycles with replaceable UV-C LEDs rated for 50,000 hours.
+
+A modern essential for the hygiene-conscious household.`,
       categorySlug: "shield",
-      brand: "Deeray Atelier",
-      isFeatured: false,
+      brand: "Deeray Tech",
+      isFeatured: true,
       variants: [
-        { sku: "SJ-46", size: "46", color: "Tobacco", price: 125000, stock: 6 },
-        { sku: "SJ-48", size: "48", color: "Tobacco", price: 125000, stock: 8 },
-        { sku: "SJ-50", size: "50", color: "Tobacco", price: 125000, stock: 4 },
-        { sku: "SJ-52", size: "52", color: "Tobacco", price: 132000, stock: 3 },
+        { sku: "SS-15", size: "15L", color: "White", price: 19999, comparePrice: 24999, stock: 20 },
+        { sku: "SS-25", size: "25L", color: "White", price: 26999, stock: 12 },
+        { sku: "SS-15-BLK", size: "15L", color: "Black", price: 20999, stock: 15 },
       ],
       images: [
-        { url: "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=1200&q=90", alt: "Safari Jacket — Front" },
-        { url: "https://images.unsplash.com/photo-1608236415055-3a792a590cbf?w=1200&q=90", alt: "Safari Jacket — Detail" },
-        { url: "https://images.unsplash.com/photo-1531072901036-d2bd07b2b33e?w=1200&q=90", alt: "Safari Jacket — Fit" },
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "SonicShield — Front View" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "SonicShield — Interior" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "SonicShield — Controls" },
       ],
-      tags: ["new-arrival"],
-      reviews: [],
+      tags: ["new-arrival", "limited-edition"],
+      reviews: [
+        { customerName: "Omar F.", customerEmail: "omar@example.com", rating: 5, title: "Perfect for daily peace of mind", comment: "I sanitize my phone and keys every evening. The drying function is a bonus I didn't know I needed.", isApproved: true },
+      ],
     },
     {
-      name: "Amber & Oud Candle Collection",
-      slug: "amber-oud-candle",
-      brief: "Hand-poured coconut wax candles in mouth-blown glass vessels.",
-      description: `The Amber & Oud Candle transforms any room into a sanctuary. Each candle is hand-poured in small batches using a proprietary blend of coconut and apricot wax that burns cleaner and longer than traditional paraffin.
+      name: "LumiAura Smart LED Panel — Ambience Pro",
+      slug: "lumiaura-ambience-pro",
+      brief: "Wi-Fi enabled RGBWW LED panel with music sync, 16 million colors, and app control.",
+      description: `The LumiAura Ambience Pro is a 24W smart LED panel that transforms any room with 16 million colors and tunable white temperatures from 2700K to 6500K. Music sync mode pulses and fades to the rhythm of your playlist via the built-in microphone.
 
-The fragrance is layered and complex: top notes of saffron and Calabrian bergamot give way to a heart of Cambodian oud and amber resin, settled on a base of Australian sandalwood and guaiac wood. The burn time is approximately 80 hours.
+Connect via Wi-Fi and control through the Deeray Home app — set schedules, create scenes, and group multiple panels for synchronized lighting across your entire home. Compatible with Alexa and Google Assistant for hands-free control.
 
-The vessel itself is a keepsake — mouth-blown borosilicate glass with an organic, uneven rim that catches the light. When the candle is spent, it becomes a drinking glass, a vase, or a vessel for small treasures.
+The slim 10mm profile installs flush against any wall or ceiling with the included mounting kit. Each panel covers a 120° beam angle and is rated for 50,000 hours of continuous use.
 
-Presented in a Japanese paper box tied with silk ribbon.`,
+Create the perfect ambiance for work, relaxation, or entertainment.`,
       categorySlug: "aura",
-      brand: "Deeray Home",
-      isFeatured: false,
+      brand: "Deeray Tech",
+      isFeatured: true,
       variants: [
-        { sku: "AC-SINGLE", size: "Single (340g)", color: "Amber Glass", price: 18000, stock: 30 },
-        { sku: "AC-DUO", size: "Duo (2×340g)", color: "Amber Glass", price: 32000, comparePrice: 36000, stock: 15 },
-        { sku: "AC-TRIO", size: "Trio (3×340g)", color: "Amber Glass", price: 45000, stock: 10 },
+        { sku: "LA-24", size: "24W Square", color: "White Frame", price: 8499, comparePrice: 10999, stock: 40 },
+        { sku: "LA-36", size: "36W Square", color: "White Frame", price: 11999, stock: 25 },
+        { sku: "LA-24-BLK", size: "24W Square", color: "Black Frame", price: 8999, stock: 20 },
       ],
       images: [
-        { url: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=1200&q=90", alt: "Amber & Oud Candle — Single" },
-        { url: "https://images.unsplash.com/photo-1602872030213-6f62e1bf7e2f?w=1200&q=90", alt: "Amber & Oud — Trio" },
-        { url: "https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=1200&q=90", alt: "Amber & Oud — Detail" },
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "LumiAura — Front View" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "LumiAura — App Controls" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "LumiAura — Room Installation" },
       ],
-      tags: ["new-arrival", "handcrafted"],
-      reviews: [],
+      tags: ["new-arrival", "best-seller"],
+      reviews: [
+        { customerName: "Fatima A.", customerEmail: "fatima@example.com", rating: 5, title: "Total room transformation", comment: "The music sync feature is incredible for parties. Everyday warm white is beautiful too.", isApproved: true },
+      ],
     },
     {
-      name: "Crocodile-Embossed Cardholder",
-      slug: "crocodile-cardholder",
-      brief: "Italian calfskin with crocodile embossing, six card slots.",
-      description: `Essentialism at its finest. This cardholder is cut from a single piece of Italian calfskin that has been embossed with a genuine crocodile grain, then hand-finished with natural dyes that allow the leather's character to show through.
+      name: "AeroFlux Smart Tower Fan",
+      slug: "aeroflux-smart-tower",
+      brief: "Bladeless tower fan with DC motor, 12 speeds, ionizer, and Wi-Fi app control.",
+      description: `The AeroFlux Smart Tower Fan combines silent operation with powerful airflow. The bladeless design is safe for children and pets while delivering a smooth, uninterrupted stream of air. The pure DC motor consumes 80% less energy than traditional AC fans.
 
-Six card slots are arranged in a thoughtful layout — two on each side and two hidden central compartments for bills or a SIM card. The edges are painted by hand in a matching pigment, a technique that requires three separate applications and twelve hours of drying time.
+Twelve speed levels give precise control, and the included ionic air purifier helps reduce dust and allergens. The 90° oscillation ensures even distribution across large rooms.
 
-Compact enough to disappear into a pocket, refined enough to pull out at a black-tie dinner.
+A sleep mode gradually reduces fan speed over 8 hours, and the timer can be set from 1 to 12 hours. Remote control and touch panel included, plus full Wi-Fi control via the Deeray Home app.
 
-The patina will deepen with every transaction, becoming uniquely yours.`,
-      categorySlug: "carry",
-      brand: "Deeray Atelier",
+At only 38 dB on the highest setting, it's one of the quietest tower fans in its class.`,
+      categorySlug: "pure",
+      brand: "Deeray Tech",
       isFeatured: false,
       variants: [
-        { sku: "CC-BLK", size: "Standard", color: "Black", price: 32000, stock: 20 },
-        { sku: "CC-BRN", size: "Standard", color: "Dark Brown", price: 32000, stock: 15 },
-        { sku: "CC-BRG", size: "Standard", color: "Burgundy", price: 34000, stock: 8 },
+        { sku: "AF-36", size: "36-inch", color: "Matte White", price: 15999, comparePrice: 19999, stock: 30 },
+        { sku: "AF-42", size: "42-inch", color: "Matte White", price: 18999, stock: 20 },
+        { sku: "AF-36-BLK", size: "36-inch", color: "Matte Black", price: 16999, stock: 15 },
       ],
       images: [
-        { url: "https://images.unsplash.com/photo-1606503825008-909a67e63c3d?w=1200&q=90", alt: "Cardholder — Front" },
-        { url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=90", alt: "Cardholder — Open" },
-        { url: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=1200&q=90", alt: "Cardholder — Detail" },
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "AeroFlux — Front View" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "AeroFlux — Remote" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "AeroFlux — Room" },
       ],
       tags: ["best-seller"],
       reviews: [
-        { customerName: "Hassan M.", customerEmail: "hassan@example.com", rating: 5, title: "Perfect everyday carry", comment: "Slips into any pocket, holds everything I need, and looks better every day. The croc embossing is subtle but distinct.", isApproved: true },
+        { customerName: "Ali R.", customerEmail: "ali@example.com", rating: 4, title: "Very quiet and efficient", comment: "Much better than our old pedestal fan. The smart features are a nice bonus but I mostly use the remote.", isApproved: true },
       ],
+    },
+    {
+      name: "PureWash Smart Bidet Seat Pro",
+      slug: "purewash-smart-bidet",
+      brief: "Heated seat, warm water wash, air dryer, and auto lid. Wireless remote included.",
+      description: `The PureWash Smart Bidet Seat Pro elevates bathroom hygiene to a new standard. Features include adjustable warm water cleaning with oscillating and pulsating spray modes, a heated seat with 5 temperature levels, warm air drying, and an automatic deodorizer.
+
+The wireless remote gives full control over water pressure, spray position, nozzle temperature, and seat temperature. The auto open/close lid with motion sensor adds convenience, while the slow-close seat prevents slamming.
+
+Installation takes under 30 minutes with the included T-valve adapter — no electrician required for the standard plug-in model. The self-cleaning nozzle retracts automatically after each use and a pre-mist function keeps the bowl clean.
+
+Energy-saving eco mode reduces power consumption by 30%.`,
+      categorySlug: "shield",
+      brand: "Deeray Tech",
+      isFeatured: false,
+      variants: [
+        { sku: "PW-ELONGATED", size: "Elongated", color: "White", price: 54999, comparePrice: 64999, stock: 10 },
+        { sku: "PW-ROUND", size: "Round", color: "White", price: 49999, stock: 8 },
+      ],
+      images: [
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "PureWash — Seat View" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "PureWash — Remote Control" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "PureWash — Installation" },
+      ],
+      tags: ["limited-edition"],
+      reviews: [],
+    },
+    {
+      name: "CarryOn 20000mAh Power Bank — PD 65W",
+      slug: "carryon-20000-powerbank",
+      brief: "65W USB-C PD fast charging, 20000mAh capacity, LED display. Laptop compatible.",
+      description: `The CarryOn 20000mAh Power Bank delivers enough power to charge a MacBook Pro 14" to 70% or an iPhone 15 Pro Max three times over. The 65W USB-C Power Delivery port charges laptops, tablets, and phones at full speed.
+
+The LED digital display shows exact remaining battery percentage, while the dual USB-A ports (each 18W QC) handle legacy devices. The unit itself recharges in under 2 hours with a 65W USB-C charger.
+
+Advanced safety protections include overcharge, over-discharge, short circuit, and temperature control. The aircraft-safe 20000mAh capacity meets airline carry-on requirements worldwide.
+
+Premium aluminum alloy body with a soft-touch matte finish that resists fingerprints and scratches.`,
+      categorySlug: "carry",
+      brand: "Deeray Tech",
+      isFeatured: false,
+      variants: [
+        { sku: "CB-20K-BLK", size: "20000mAh", color: "Space Gray", price: 7999, comparePrice: 9999, stock: 50 },
+        { sku: "CB-20K-WHT", size: "20000mAh", color: "White", price: 7999, stock: 35 },
+        { sku: "CB-10K-BLK", size: "10000mAh", color: "Space Gray", price: 4999, stock: 60 },
+      ],
+      images: [
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "CarryOn Power Bank — Front" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "CarryOn — Display" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "CarryOn — Charging Devices" },
+      ],
+      tags: ["best-seller"],
+      reviews: [
+        { customerName: "Hassan M.", customerEmail: "hassan@example.com", rating: 5, title: "Charges my laptop perfectly", comment: "Compact enough for daily carry, powerful enough for a full day of work away from an outlet.", isApproved: true },
+      ],
+    },
+    {
+      name: "NovaLink USB-C 10-in-1 Docking Station",
+      slug: "novalink-usbc-dock",
+      brief: "Triple display HDMI, 100W PD pass-through, Gigabit Ethernet, SD/microSD slots.",
+      description: `The NovaLink 10-in-1 USB-C Docking Station turns any USB-C laptop into a full workstation. Connect up to three external displays via dual HDMI 2.0 and one DisplayPort — supporting 4K@60Hz on all three ports simultaneously.
+
+The 100W Power Delivery pass-through charges your laptop at full speed while using all ports. Integrated Gigabit Ethernet provides a stable wired connection, and the 10Gbps USB-C and USB-A data ports handle high-speed file transfers.
+
+SD and microSD 4.0 card readers support UHS-II speeds for photographers and videographers. The 3.5mm audio jack supports both input and output.
+
+Built with an aluminum alloy body for superior heat dissipation and a non-slip rubber base. Compatible with MacBook, Windows, Chromebook, iPad Pro, and Steam Deck.`,
+      categorySlug: "carry",
+      brand: "Deeray Tech",
+      isFeatured: false,
+      variants: [
+        { sku: "NL-10", size: "Standard", color: "Space Gray", price: 14999, comparePrice: 18999, stock: 25 },
+        { sku: "NL-10-SLV", size: "Standard", color: "Silver", price: 14999, stock: 20 },
+      ],
+      images: [
+        { url: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90", alt: "NovaLink Dock — Front" },
+        { url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90", alt: "NovaLink — Ports" },
+        { url: "https://images.unsplash.com/photo-1600494607707-1340b3c92a79?w=1200&q=90", alt: "NovaLink — Setup" },
+      ],
+      tags: ["new-arrival"],
+      reviews: [],
     },
   ]
 
@@ -424,68 +420,66 @@ The patina will deepen with every transaction, becoming uniquely yours.`,
 
   const blogPosts = [
     {
-      title: "The Art of Slow Luxury",
-      slug: "art-of-slow-luxury",
-      excerpt: "In a world that demands faster, louder, cheaper — we choose the opposite. Here's why slow luxury matters now more than ever.",
-      content: `In 2025, the average person encounters between 6,000 and 10,000 brand messages every day. Logos flash across screens. Notifications demand attention. Algorithms optimize for speed, not depth.
+      title: "HEPA vs UV-C vs Ionizer: Which Air Purifier Tech Is Right for You?",
+      slug: "hepa-vs-uvc-vs-ionizer",
+      excerpt: "Confused by air purifier technologies? We break down HEPA, UV-C, and ionizer tech to help you choose the right one for your home.",
+      content: `With air quality becoming a growing concern, the market is flooded with air purifiers claiming to use the latest technology. But what do the terms actually mean? Here's an honest breakdown.
 
-At Deeray, we believe that true luxury is the antidote to this noise.
+**HEPA Filtration (High-Efficiency Particulate Air)**
 
-**What is Slow Luxury?**
+True HEPA filters are the gold standard. They capture 99.97% of particles as small as 0.3 microns — dust, pollen, mold spores, pet dander, and even bacteria. The key word here is "True" HEPA. Many budget purifiers use "HEPA-type" or "HEPA-like" filters that don't meet the same standard.
 
-Slow luxury is not about price — it's about intention. It's a garment that took 72 hours to stitch instead of 72 minutes. A fragrance that spent six months macerating before it touched a bottle. A leather bag cut from a single hide, where the natural markings tell a story that no factory can replicate.
+Our AeroPure H13 uses medical-grade True HEPA. The trade-off? Filters need replacement every 6–8 months, and the denser the filter, the more energy the fan requires to push air through.
 
-It is the opposite of disposable. It is anti-trend. It is ownership as a long-term relationship rather than a transient transaction.
+**UV-C Sterilization**
 
-**The Craftsmanship Behind the Concept**
+UV-C light damages the DNA of microorganisms, killing or inactivating bacteria and viruses. It's extremely effective in controlled environments but has limitations in air purifiers — the exposure time is often too brief to be fully effective against airborne pathogens.
 
-Every Deeray piece begins with raw materials chosen not for cost efficiency, but for character. Our vicuña-blend fabric comes from a single family-run mill in Biella, Italy that has operated since 1867. Our cashmere is hand-combed in Mongolia by artisans whose techniques predate the Mongol Empire. Our crystal flacons are mouth-blown in Murano, using methods that have remained unchanged for seven centuries.
+Where UV-C shines best is in surface sterilization. Our SonicShield cabinet uses five UV-C LEDs with a timed cycle that ensures adequate exposure, making it ideal for sanitizing phones, keys, and other daily items.
 
-This is not nostalgia. It is a deliberate refusal to compromise.
+**Ionizers (Negative Ion Generators)**
 
-**Why It Matters**
+Ionizers charge particles in the air, causing them to stick to surfaces or each other so they fall out of the breathing zone. While this can make the air feel cleaner, the particles aren't actually removed — they settle on walls, furniture, and floors. Some ionizers also produce trace amounts of ozone as a byproduct.
 
-When you buy a Deeray piece, you are not consuming — you are commissioning. You are participating in a chain of craftsmanship that values the maker as much as the wearer. You are choosing quality over quantity, permanence over novelty, soul over surface.
+**Our Recommendation**
 
-In a world racing toward the bottom, slow luxury is a quiet act of rebellion.
+For whole-home air purification, always choose True HEPA. For quick sanitization of personal items, UV-C is unbeatable. Skip standalone ionizers — they're best used as a supplementary feature in a device that also has HEPA filtration.
 
-*— The Deeray Team*`,
-      image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&q=90",
-      author: "The Deeray Team",
+*— The Deeray Tech Team*`,
+      image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&q=90",
+      author: "The Deeray Tech Team",
       published: true,
     },
     {
-      title: "A Guide to Cashmere: Quality, Care & Longevity",
-      slug: "guide-to-cashmere",
-      excerpt: "Everything you need to know about selecting, wearing, and caring for the world's finest natural fiber.",
-      content: `Cashmere is perhaps the most misunderstood luxury fiber. Many believe that all cashmere is created equal — that the label alone guarantees quality. The truth is far more nuanced.
+      title: "USB-C Power Delivery Explained: Watts, Volts, and What Your Devices Actually Need",
+      slug: "usb-c-pd-explained",
+      excerpt: "Everything you need to know about USB-C Power Delivery — from fast charging your phone to powering a laptop.",
+      content: `USB-C Power Delivery (PD) has revolutionized charging, but the jargon can be confusing. Here's what you actually need to know.
 
-**The Grading System**
+**What is Power Delivery?**
 
-Cashmere is classified by fiber diameter. The industry standard allows fibers up to 19 microns. Exceptional cashmere — the kind we use at Deeray — averages between 13.5 and 15 microns. To put that in perspective: human hair is approximately 75 microns. The difference between standard and exceptional cashmere is the difference between a rough whisper and total silence.
+Power Delivery is a fast charging protocol that allows higher power levels over USB-C connections. Unlike older USB standards that maxed out at 5V/2.4A (12W), PD can negotiate up to 240W (48V/5A) with the latest PD 3.1 standard.
 
-**Where It Comes From**
+The key feature is intelligent negotiation — the charger and device communicate to determine the optimal voltage and current, ensuring safe and efficient charging for everything from earbuds to laptops.
 
-The best cashmere comes from the Kashmir goat, native to the high plateaus of Inner Mongolia and Mongolia. These goats endure winters that reach -40°C, growing a fine undercoat that provides insulation against the cold. It is this undercoat — combed by hand during the spring molting season — that becomes cashmere.
+**Common Power Levels**
 
-**How to Care for Cashmere**
+- **18W–30W:** Smartphones and tablets. An iPhone 15 Pro Max charges at about 27W, while an iPad Pro can draw up to 30W.
+- **45W–65W:** Ultrabooks and thin-and-light laptops. A MacBook Air charges at 30W, while a MacBook Pro 14" requires 67W for full speed.
+- **100W+:** High-performance laptops, workstations, and even some monitors. The Dell XPS 17 and MacBook Pro 16" can draw up to 140W.
 
-1. **Air, don't wash.** After wearing, hang your cashmere in a well-ventilated area for 24 hours. Cashmere is self-cleaning — it needs far fewer washes than you think.
+**What About Data?**
 
-2. **Hand wash cold.** When it is time to clean, use a specialist cashmere shampoo in lukewarm water. Do not wring — press the water out gently.
+Not all USB-C cables are created equal. A cable rated for 60W can handle most phones and tablets but will throttle a laptop. Always match your cable's power rating to your device's needs. Look for cables with an e-marker chip that confirms the rated speed (usually 5A for 100W+).
 
-3. **Dry flat.** Never hang cashmere — the weight of the water will stretch it. Roll it in a towel to remove excess moisture, then lay flat on a drying rack away from direct heat or sunlight.
+**Why It Matters for Your Setup**
 
-4. **Store folded.** Cashmere should be folded, not hung. Hangers create shoulder bumps that never fully recover.
+A single 65W charger and a quality cable can replace the separate chargers for your phone, tablet, laptop, earbuds, and even your Nintendo Switch. That's fewer cables to carry and fewer outlets needed.
 
-5. **Pilling is not a flaw.** It is a sign of natural fibers. Use a cashmere comb to remove pills gently — never a razor or a pill remover.
+Our CarryOn 20000mAh Power Bank supports 65W PD output — enough to charge a MacBook Pro at full speed while on the go. And our NovaLink Docking Station delivers 100W PD pass-through so your laptop stays charged through a single cable.
 
-**The Deeray Difference**
-
-Our cashmere throws are woven on traditional handlooms, not power looms. This means the fibers are aligned naturally rather than forced, resulting in a softer hand and greater durability. Each throw is inspected by hand before it leaves our workshop.
-
-Invest in one exceptional piece rather than five mediocre ones. Your wardrobe — and the planet — will thank you.`,
-      image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=90",
+*— The Deeray Tech Team*`,
+      image: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=1200&q=90",
       author: "Zaid M.",
       published: true,
     },

@@ -103,7 +103,7 @@ export default function AdminProductNew() {
                     className="border border-[#e3e2e4] px-3 py-2 text-sm focus:outline-none focus:border-[#062437]" />
                   <input type="number" placeholder="Stock" value={v.stock || ""} onChange={(e) => updateVariant(i, "stock", parseInt(e.target.value) || 0)}
                     className="border border-[#e3e2e4] px-3 py-2 text-sm focus:outline-none focus:border-[#062437]" />
-                  <input type="text" placeholder="Size" value={v.size} onChange={(e) => updateVariant(i, "size", e.target.value)}
+                  <input type="text" placeholder="Size / Model" value={v.size} onChange={(e) => updateVariant(i, "size", e.target.value)}
                     className="border border-[#e3e2e4] px-3 py-2 text-sm focus:outline-none focus:border-[#062437]" />
                   <input type="text" placeholder="Color" value={v.color} onChange={(e) => updateVariant(i, "color", e.target.value)}
                     className="border border-[#e3e2e4] px-3 py-2 text-sm focus:outline-none focus:border-[#062437]" />
