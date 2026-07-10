@@ -32,7 +32,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#715b3a] mb-2">Phone</p>
-                  <p className="font-['Hanken_Grotesk'] text-sm text-[#062437]">+92 300 1234567</p>
+                  <p className="font-['Hanken_Grotesk'] text-sm text-[#062437]">0308 7043836</p>
                 </div>
                 <div>
                   <p className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#715b3a] mb-2">Location</p>
@@ -41,8 +41,9 @@ export default function ContactPage() {
                 <div>
                   <p className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-[#715b3a] mb-2">Social</p>
                   <div className="flex gap-4">
-                    <a href="https://instagram.com/deeray.studio" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-sm text-[#062437] hover:underline">Instagram</a>
-                    <a href="https://facebook.com/deeray.studio" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-sm text-[#062437] hover:underline">Facebook</a>
+                    <a href="https://www.instagram.com/deeray.store" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-sm text-[#062437] hover:underline">Instagram</a>
+                    <a href="https://www.facebook.com/share/18ou5xXQyb/" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-sm text-[#062437] hover:underline">Facebook</a>
+                    <a href="https://www.linkedin.com/company/deeray.store" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-sm text-[#062437] hover:underline">LinkedIn</a>
                   </div>
                 </div>
               </div>

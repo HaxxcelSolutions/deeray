@@ -13,8 +13,9 @@ export default function Footer() {
               Curating the future of domestic environments with precision, poise, and architectural integrity. Every piece, a statement. Every detail, intentional.
             </p>
             <div className="mt-8 flex gap-6">
-              <a href="https://instagram.com/deeray.studio" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-white/20 hover:text-white/50 transition-colors">Instagram</a>
-              <a href="https://facebook.com/deeray.studio" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-white/20 hover:text-white/50 transition-colors">Facebook</a>
+              <a href="https://www.instagram.com/deeray.store" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-white/20 hover:text-white/50 transition-colors">Instagram</a>
+              <a href="https://www.facebook.com/share/18ou5xXQyb/" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-white/20 hover:text-white/50 transition-colors">Facebook</a>
+              <a href="https://www.linkedin.com/company/deeray.store" target="_blank" rel="noreferrer noopener" className="font-['Hanken_Grotesk'] text-[10px] uppercase tracking-[0.2em] text-white/20 hover:text-white/50 transition-colors">LinkedIn</a>
             </div>
           </div>
 
@@ -67,7 +68,7 @@ export default function Footer() {
                 hello@deeray.store
               </p>
               <p className="font-['Hanken_Grotesk'] text-sm text-white/50 font-light">
-                +92 300 1234567
+                0308 7043836
               </p>
             </div>
           </div>

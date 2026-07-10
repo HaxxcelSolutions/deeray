@@ -44,7 +44,7 @@ export default function FAQPage() {
     },
     {
       q: "How can I contact Deeray?",
-      a: "You can reach us via email at hello@deeray.store or phone at +92 300 1234567. We aim to respond within 24 hours.",
+      a: "You can reach us via email at hello@deeray.store, phone/WhatsApp at 0308 7043836, or follow us on Instagram, Facebook, and LinkedIn @deeray.store. We aim to respond within 24 hours.",
     },
   ]
 

@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: process.env.NEXT_PUBLIC_SITE_URL,
               logo: `${process.env.NEXT_PUBLIC_SITE_URL}/favicon.png`,
               description: "Curating the future of domestic environments with precision, poise, and architectural integrity.",
-              sameAs: ["https://instagram.com/deeray.studio", "https://facebook.com/deeray.studio"],
+              sameAs: ["https://www.instagram.com/deeray.store", "https://www.facebook.com/share/18ou5xXQyb/", "https://www.linkedin.com/company/deeray.store"],
             }),
           }}
         />

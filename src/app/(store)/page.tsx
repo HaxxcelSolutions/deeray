@@ -326,11 +326,11 @@ export default function HomePage() {
             <div className="flex justify-between items-end mb-12">
               <div>
                 <span className="font-['Hanken_Grotesk'] text-[10px] text-[#715b3a] uppercase tracking-[0.3em] mb-3 block">Follow Us</span>
-                <a href="https://instagram.com/deeray.studio" target="_blank" rel="noreferrer noopener">
+                <a href="https://www.instagram.com/deeray.store" target="_blank" rel="noreferrer noopener">
                   <h3 className="font-serif text-3xl md:text-4xl text-[#062437] lowercase italic tracking-tight hover:opacity-60 transition-opacity">@deeray.store</h3>
                 </a>
               </div>
-              <a href="https://instagram.com/deeray.studio" target="_blank" rel="noreferrer noopener" className="hidden md:block font-['Hanken_Grotesk'] text-[11px] text-[#715b3a] tracking-[0.2em] lowercase border-b border-[#715b3a]/20 pb-1 hover:text-[#062437] transition-colors">Instagram</a>
+              <a href="https://www.instagram.com/deeray.store" target="_blank" rel="noreferrer noopener" className="hidden md:block font-['Hanken_Grotesk'] text-[11px] text-[#715b3a] tracking-[0.2em] lowercase border-b border-[#715b3a]/20 pb-1 hover:text-[#062437] transition-colors">Instagram</a>
             </div>
           </AnimateInView>
         </div>
